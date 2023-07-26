@@ -1,2 +1,8 @@
 .venv
 .vscode
+
+# variaveis de ambiente
+.env
+
+# banco de dados
+teste.db

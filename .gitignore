@@ -1,6 +1,7 @@
 .venv
 .vscode
 __pycache__
+ignore.py
 
 # variaveis de ambiente
 .env

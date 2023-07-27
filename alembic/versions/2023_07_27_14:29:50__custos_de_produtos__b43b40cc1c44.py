@@ -1,7 +1,7 @@
 """custos_de_produtos
 
 Revision ID: b43b40cc1c44
-Revises: 4196cb3cd475
+Revises: 2a1d2b765e11
 Create Date: 2023-07-27 14:29:50.644343
 
 """
@@ -11,7 +11,7 @@ import sqlalchemy as sa
 
 # revision identifiers, used by Alembic.
 revision = "b43b40cc1c44"
-down_revision = "4196cb3cd475"
+down_revision = "2a1d2b765e11"
 branch_labels = None
 depends_on = None
 
@@ -25,7 +25,9 @@ def upgrade() -> None:
         ),
         sa.Column("valor", sa.Numeric(10, 2), nullable=False),
         sa.Column("valor_unitario", sa.Numeric(10, 2), nullable=False),
-        sa.Column("unidade", sa.String(50), nullable=False),
+        sa.Column(
+            "medida", sa.Integer, sa.ForeignKey("medidas.id"), nullable=False
+        ),
         sa.Column("quantidade", sa.Integer, nullable=False),
         sa.Column(
             "ordem_de_pedido_id",

@@ -1,8 +1,8 @@
 """parceiros
 
-Revision ID: 15f9b0ba2955
-Revises: ab682dc1abe2
-Create Date: 2023-07-26 17:26:16.935232
+Revision ID: b88192b3344d
+Revises: 2d700beed168
+Create Date: 2023-07-27 14:08:15.212120
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = "15f9b0ba2955"
-down_revision = "ab682dc1abe2"
+revision = "b88192b3344d"
+down_revision = "2d700beed168"
 branch_labels = None
 depends_on = None
 

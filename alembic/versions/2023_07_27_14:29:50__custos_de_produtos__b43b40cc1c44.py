@@ -1,8 +1,8 @@
-"""custos_de_produto
+"""custos_de_produtos
 
-Revision ID: 26a2c5adbc2b
-Revises: a08fa91e79df
-Create Date: 2023-07-26 19:04:57.215067
+Revision ID: b43b40cc1c44
+Revises: 4196cb3cd475
+Create Date: 2023-07-27 14:29:50.644343
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = "26a2c5adbc2b"
-down_revision = "c3bacdd0d252"
+revision = "b43b40cc1c44"
+down_revision = "4196cb3cd475"
 branch_labels = None
 depends_on = None
 
@@ -25,14 +25,14 @@ def upgrade() -> None:
         ),
         sa.Column("valor", sa.Numeric(10, 2), nullable=False),
         sa.Column("valor_unitario", sa.Numeric(10, 2), nullable=False),
-        sa.Column(
-            "categoria",
-            sa.Integer,
-            sa.ForeignKey("categorias_de_produto.id"),
-            nullable=False,
-        ),
         sa.Column("unidade", sa.String(50), nullable=False),
         sa.Column("quantidade", sa.Integer, nullable=False),
+        sa.Column(
+            "ordem_de_pedido_id",
+            sa.Integer,
+            sa.ForeignKey("ordens_de_pedido.id"),
+            nullable=False,
+        ),
     )
 
 

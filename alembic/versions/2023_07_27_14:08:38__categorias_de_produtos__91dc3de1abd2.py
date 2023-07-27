@@ -1,8 +1,8 @@
-"""categorias_produto
+"""categorias_de_produtos
 
-Revision ID: c3bacdd0d252
-Revises: 26a2c5adbc2b
-Create Date: 2023-07-26 21:38:09.976885
+Revision ID: 91dc3de1abd2
+Revises: b88192b3344d
+Create Date: 2023-07-27 14:08:38.951160
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = "c3bacdd0d252"
-down_revision = "d8ddfc52c0fa"
+revision = "91dc3de1abd2"
+down_revision = "b88192b3344d"
 branch_labels = None
 depends_on = None
 

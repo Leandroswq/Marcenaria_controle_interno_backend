@@ -1,8 +1,8 @@
 """funcionarios
 
-Revision ID: ab682dc1abe2
-Revises:
-Create Date: 2023-07-26 17:06:24.212518
+Revision ID: 2d700beed168
+Revises: 26b013b4f7b5
+Create Date: 2023-07-27 14:08:07.269639
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = "ab682dc1abe2"
-down_revision = None
+revision = "2d700beed168"
+down_revision = "26b013b4f7b5"
 branch_labels = None
 depends_on = None
 

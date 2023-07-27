@@ -1,8 +1,8 @@
 """clientes
 
-Revision ID: fe04d9ecc88b
-Revises: 26a2c5adbc2b
-Create Date: 2023-07-27 09:55:04.916620
+Revision ID: 26b013b4f7b5
+Revises:
+Create Date: 2023-07-27 14:07:55.456422
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = "fe04d9ecc88b"
-down_revision = "26a2c5adbc2b"
+revision = "26b013b4f7b5"
+down_revision = None
 branch_labels = None
 depends_on = None
 

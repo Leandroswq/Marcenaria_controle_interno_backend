@@ -1,8 +1,8 @@
 """custos_de_terceiros
 
-Revision ID: a08fa91e79df
-Revises: 15f9b0ba2955
-Create Date: 2023-07-26 17:26:29.885363
+Revision ID: 4196cb3cd475
+Revises: 722a7ae04d39
+Create Date: 2023-07-27 14:09:37.491108
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = "a08fa91e79df"
-down_revision = "15f9b0ba2955"
+revision = "4196cb3cd475"
+down_revision = "722a7ae04d39"
 branch_labels = None
 depends_on = None
 
@@ -29,6 +29,12 @@ def upgrade() -> None:
             nullable=False,
         ),
         sa.Column("quantidade", sa.Integer, nullable=False),
+        sa.Column(
+            "ordem_de_pedido_id",
+            sa.Integer,
+            sa.ForeignKey("ordens_de_pedido.id"),
+            nullable=False,
+        ),
     )
 
 

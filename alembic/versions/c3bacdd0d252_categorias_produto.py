@@ -20,7 +20,7 @@ def upgrade() -> None:
     op.create_table(
         "categorias",
         sa.Column("id", sa.Integer, primary_key=True, autoincrement=True),
-        sa.Column("categoria", sa.String(50), nullable=False),
+        sa.Column("categoria", sa.String(50), nullable=False, unique=True),
     )
 
 

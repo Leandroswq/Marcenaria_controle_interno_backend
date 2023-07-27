@@ -1,4 +1,4 @@
-"""custos_de_produtos
+"""custos_de_produto
 
 Revision ID: 26a2c5adbc2b
 Revises: a08fa91e79df
@@ -28,7 +28,7 @@ def upgrade() -> None:
         sa.Column(
             "categoria",
             sa.Integer,
-            sa.ForeignKey("categorias.id"),
+            sa.ForeignKey("categorias_de_produto.id"),
             nullable=False,
         ),
         sa.Column("unidade", sa.String(50), nullable=False),

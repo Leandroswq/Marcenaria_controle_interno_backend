@@ -24,7 +24,9 @@ def upgrade() -> None:
         sa.Column("sobre_Nome", sa.String(100)),
         sa.Column("funcao", sa.String(50), nullable=False),
         sa.Column("telefone", sa.VARCHAR(11), nullable=False),
-        sa.CheckConstraint("LENGTH(telefone) = 11", name="ck_telefone_length"),
+        sa.CheckConstraint(
+            "LENGTH(telefone) = 11", name="ck_funcionarios_telefone_length"
+        ),
     )
 
 

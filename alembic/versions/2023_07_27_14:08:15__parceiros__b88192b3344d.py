@@ -40,21 +40,21 @@ def upgrade() -> None:
                 "sobre_Nome": "de Tal",
                 "empresa": "Empresa A",
                 "e_empresa": True,
-                "telefone": "1122334455",
+                "telefone": "91122334455",
             },
             {
                 "nome": "Ciclano",
                 "sobre_Nome": "da Silva",
                 "empresa": None,
                 "e_empresa": False,
-                "telefone": "5566778899",
+                "telefone": "95566778899",
             },
             {
                 "nome": "Beltrano",
                 "sobre_Nome": "Ferreira",
                 "empresa": "Empresa B",
                 "e_empresa": True,
-                "telefone": "9988776655",
+                "telefone": "99988776655",
             },
         ]
         try:

@@ -38,19 +38,19 @@ def upgrade() -> None:
                 "nome": "João",
                 "sobre_Nome": "Silva",
                 "funcao": "Analista",
-                "telefone": "1122334455",
+                "telefone": "91122334455",
             },
             {
                 "nome": "Maria",
                 "sobre_Nome": "Santos",
                 "funcao": "Gerente",
-                "telefone": "5566778899",
+                "telefone": "95566778899",
             },
             {
                 "nome": "Pedro",
                 "sobre_Nome": "Ferreira",
                 "funcao": "Desenvolvedor",
-                "telefone": "9988776655",
+                "telefone": "99988776655",
             },
         ]
         try:

@@ -14,7 +14,7 @@ create_seed = True if os.getenv("ALEMBIC_CREATE_SEEDS") == "True" else False
 
 # revision identifiers, used by Alembic.
 revision = "b43b40cc1c44"
-down_revision = "2a1d2b765e11"
+down_revision = "4196cb3cd475"
 branch_labels = None
 depends_on = None
 
@@ -28,9 +28,6 @@ def upgrade() -> None:
         ),
         sa.Column("valor", sa.Numeric(10, 2), nullable=False),
         sa.Column("valor_unitario", sa.Numeric(10, 2), nullable=False),
-        sa.Column(
-            "medida", sa.Integer, sa.ForeignKey("medidas.id"), nullable=False
-        ),
         sa.Column("quantidade", sa.Integer, nullable=False),
         sa.Column(
             "ordem_de_pedido_id",
@@ -46,7 +43,6 @@ def upgrade() -> None:
                 "produto": 1,
                 "valor": 100.50,
                 "valor_unitario": 50.25,
-                "medida": 1,
                 "quantidade": 10,
                 "ordem_de_pedido_id": 1,
             },
@@ -54,7 +50,6 @@ def upgrade() -> None:
                 "produto": 2,
                 "valor": 75.25,
                 "valor_unitario": 25.08,
-                "medida": 2,
                 "quantidade": 5,
                 "ordem_de_pedido_id": 1,
             },
@@ -62,7 +57,6 @@ def upgrade() -> None:
                 "produto": 1,
                 "valor": 300.00,
                 "valor_unitario": 150.00,
-                "medida": 3,
                 "quantidade": 2,
                 "ordem_de_pedido_id": 2,
             },
@@ -70,7 +64,6 @@ def upgrade() -> None:
                 "produto": 2,
                 "valor": 45.80,
                 "valor_unitario": 22.90,
-                "medida": 1,
                 "quantidade": 8,
                 "ordem_de_pedido_id": 2,
             },
@@ -78,7 +71,6 @@ def upgrade() -> None:
                 "produto": 3,
                 "valor": 180.00,
                 "valor_unitario": 60.00,
-                "medida": 2,
                 "quantidade": 3,
                 "ordem_de_pedido_id": 3,
             },
@@ -86,7 +78,6 @@ def upgrade() -> None:
                 "produto": 3,
                 "valor": 120.75,
                 "valor_unitario": 40.25,
-                "medida": 3,
                 "quantidade": 4,
                 "ordem_de_pedido_id": 3,
             },

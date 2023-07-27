@@ -1,8 +1,8 @@
 """medidas
 
 Revision ID: 2a1d2b765e11
-Revises: 4196cb3cd475
-Create Date: 2023-07-27 14:16:05.804039
+Revises: 91dc3de1abd2
+Create Date: 2023-07-27 14:08:45.804039
 
 """
 from alembic import op
@@ -14,7 +14,7 @@ create_seed = True if os.getenv("ALEMBIC_CREATE_SEEDS") == "True" else False
 
 # revision identifiers, used by Alembic.
 revision = "2a1d2b765e11"
-down_revision = "4196cb3cd475"
+down_revision = "91dc3de1abd2"
 branch_labels = None
 depends_on = None
 

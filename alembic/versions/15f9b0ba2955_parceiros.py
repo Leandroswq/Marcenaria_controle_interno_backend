@@ -19,7 +19,7 @@ depends_on = None
 def upgrade() -> None:
     op.create_table(
         "parceiros",
-        sa.Column("id", sa.Integer, primary_key=True),
+        sa.Column("id", sa.Integer, primary_key=True, autoincrement=True),
         sa.Column("nome", sa.String(50), nullable=False),
         sa.Column("sobre_Nome", sa.String(100)),
         sa.Column("empresa", sa.String(50), nullable=True),

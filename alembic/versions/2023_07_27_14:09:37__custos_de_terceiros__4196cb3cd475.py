@@ -23,9 +23,15 @@ def upgrade() -> None:
         sa.Column("descricao", sa.String(255), nullable=False),
         sa.Column("valor", sa.Numeric(10, 2), nullable=False),
         sa.Column(
-            "responsavel_contato",
+            "parceiro",
             sa.Integer,
             sa.ForeignKey("parceiros.id"),
+            nullable=False,
+        ),
+        sa.Column(
+            "reponsavel_pelo_contato",
+            sa.Integer,
+            sa.ForeignKey("funcionarios.id"),
             nullable=False,
         ),
         sa.Column("quantidade", sa.Integer, nullable=False),

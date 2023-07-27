@@ -32,7 +32,7 @@ def upgrade() -> None:
         ),
         sa.Column("total", sa.Numeric(10, 2), nullable=False),
         sa.Column("inicio", sa.DateTime, nullable=False),
-        sa.Column("Data prevista", sa.DateTime, nullable=False),
+        sa.Column("data_prevista", sa.DateTime, nullable=False),
         sa.Column("Termino", sa.DateTime, nullable=True),
     )
 

@@ -21,7 +21,7 @@ def upgrade() -> None:
         "funcionarios",
         sa.Column("id", sa.Integer, primary_key=True),
         sa.Column("nome", sa.String(50), nullable=False),
-        sa.Column("sobre_Nome", sa.String(200)),
+        sa.Column("sobre_Nome", sa.String(100)),
         sa.Column("funcao", sa.String(50), nullable=False),
     )
 

@@ -1,0 +1,11 @@
+{
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "python.formatting.provider": "none",
+  "files.exclude": {
+    "**/*.pyc": {"when": "$(basename).py"},
+    "**/__pycache__": true,
+    "**/*.pytest_cache": true,
+}
+}

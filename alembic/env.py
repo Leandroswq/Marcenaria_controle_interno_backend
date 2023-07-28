@@ -5,11 +5,8 @@ from sqlalchemy import pool
 
 from alembic import context
 
-from app.src.db.connection.engine import connection_string
+from utils.db import create_sqlalchemy_connection_string
 
-from dotenv import load_dotenv
-
-load_dotenv()
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
@@ -19,6 +16,7 @@ config = context.config
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
+connection_string = create_sqlalchemy_connection_string()
 
 config.set_main_option("sqlalchemy.url", connection_string)
 

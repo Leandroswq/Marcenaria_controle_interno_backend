@@ -1,0 +1,16 @@
+repos:
+  - repo: local
+    hooks:
+      - id: requirements
+        name: requirements
+        entry: bash -c '.venv/bin/pip freeze > requirements.txt; git add requirements.txt'
+        language: system
+        pass_filenames: false
+        stages: [commit]
+
+      - id: black
+        name: black
+        entry: bash -c 'black src'
+        language: system
+        pass_filenames: false
+        stages: [ commit ]

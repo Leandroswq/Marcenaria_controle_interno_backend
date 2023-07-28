@@ -1,9 +1,14 @@
 .venv
-.vscode
 __pycache__
+.pytest_cache
+
+# pycharm
+ignore.py
+.idea
 
 # variaveis de ambiente
 .env
 
 # banco de dados
 teste.db
+marcenaria.db

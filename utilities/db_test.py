@@ -1,4 +1,4 @@
-from db import create_sqlalchemy_connection_string
+from utilities.db import create_sqlalchemy_connection_string
 
 
 def test_create_sqlalchemy_connection_string():

@@ -5,7 +5,7 @@ from sqlalchemy import pool
 
 from alembic import context
 
-from utils.db import create_sqlalchemy_connection_string
+from utilities.db import create_sqlalchemy_connection_string
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

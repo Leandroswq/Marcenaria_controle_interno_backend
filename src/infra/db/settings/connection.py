@@ -1,7 +1,6 @@
-from utils.db import create_sqlalchemy_connection_string
+from utilities.db import create_sqlalchemy_connection_string, db_envs
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
-from utils.db import db_envs
 
 
 class DBConnectionHandler:
@@ -15,13 +14,13 @@ class DBConnectionHandler:
         logs=db_envs["show_logs"],
     ) -> None:
         self.__connection_string = create_sqlalchemy_connection_string(
-            type, host, user, password, name
+            type, name, host, user, password
         )
         self.__engine = self.__create_database_engine(logs)
         self.session = None
 
     def __create_database_engine(self, logs):
-        engine = create_engine(self.__connection_string)
+        engine = create_engine(self.__connection_string, echo=logs)
         return engine
 
     def get_engine(self):

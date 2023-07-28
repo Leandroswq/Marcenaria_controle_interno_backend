@@ -7,3 +7,10 @@ repos:
         language: system
         pass_filenames: false
         stages: [commit]
+
+      - id: black
+        name: black
+        entry: bash -c 'black src'
+        language: system
+        pass_filenames: false
+        stages: [ commit ]

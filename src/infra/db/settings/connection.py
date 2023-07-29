@@ -6,7 +6,7 @@ from sqlalchemy import create_engine
 class DBConnectionHandler:
     def __init__(
         self,
-        type=db_envs["type"],
+        type_db=db_envs["type"],
         host=db_envs["host"],
         user=db_envs["user"],
         password=db_envs["password"],
@@ -14,7 +14,7 @@ class DBConnectionHandler:
         logs=db_envs["show_logs"],
     ) -> None:
         self.__connection_string = create_sqlalchemy_connection_string(
-            type, name, host, user, password
+            type_db, name, host, user, password
         )
         self.__engine = self.__create_database_engine(logs)
         self.session = None

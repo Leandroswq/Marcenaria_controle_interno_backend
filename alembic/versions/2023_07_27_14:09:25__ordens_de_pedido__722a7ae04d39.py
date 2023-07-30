@@ -34,6 +34,14 @@ def upgrade() -> None:
         sa.Column("inicio", sa.DateTime, nullable=False),
         sa.Column("data_prevista", sa.DateTime, nullable=False),
         sa.Column("Termino", sa.DateTime, nullable=True),
+        sa.Column("pais", sa.String(50), nullable=False),
+        sa.Column("estado", sa.String(50), nullable=False),
+        sa.Column("cidade", sa.String(50), nullable=False),
+        sa.Column("bairro", sa.String(50), nullable=False),
+        sa.Column("endereco", sa.String(100), nullable=False),
+        sa.Column("complemento", sa.String(150)),
+        sa.Column("cep", sa.VARCHAR(8), nullable=False),
+        sa.CheckConstraint("LENGTH(cep) = 8", name="ck_ordem_de_pedido_cep_length"),
     )
 
     if create_seed:
@@ -44,6 +52,12 @@ def upgrade() -> None:
                 "inicio": datetime(2023, 7, 27, 10, 0, 0),
                 "data_prevista": datetime(2023, 8, 10, 18, 0, 0),
                 "termino": None,
+                "pais": "Brasil",
+                "estado": "Goiás",
+                "cidade": "Goiânia",
+                "bairro": "Bairro 1",
+                "endereco": "Rua A",
+                "cep": "74000000",
             },
             {
                 "cliente_id": 2,
@@ -51,6 +65,12 @@ def upgrade() -> None:
                 "inicio": datetime(2023, 7, 28, 9, 30, 0),
                 "data_prevista": datetime(2023, 8, 15, 16, 30, 0),
                 "termino": None,
+                "pais": "Brasil",
+                "estado": "Goiás",
+                "cidade": "Goiânia",
+                "bairro": "Bairro 2",
+                "endereco": "Rua B",
+                "cep": "74100000",
             },
             {
                 "cliente_id": 3,
@@ -58,6 +78,12 @@ def upgrade() -> None:
                 "inicio": datetime(2023, 7, 30, 11, 15, 0),
                 "data_prevista": datetime(2023, 8, 12, 20, 45, 0),
                 "termino": None,
+                "pais": "Brasil",
+                "estado": "Goiás",
+                "cidade": "Goiânia",
+                "bairro": "Bairro 3",
+                "endereco": "Rua C",
+                "cep": "74200000",
             },
         ]
         try:

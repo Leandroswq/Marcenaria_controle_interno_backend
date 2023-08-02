@@ -61,7 +61,7 @@ class ClienteServiceInterface(ABC):
         pass
 
     @abstractmethod
-    def update_cliente(self, data: dict, cliente_id: int) -> None:
+    def update_cliente(self, data: int, cliente_id: int) -> None:
         pass
 
     @abstractmethod

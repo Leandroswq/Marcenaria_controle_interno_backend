@@ -35,7 +35,7 @@ class ClienteModel(BaseModel):
 
     def __repr__(self):
         return (
-            f"Cliente id = [id={self.client_id}, nome={self.nome}, sobre_nome={self.sobre_nome}, "
+            f"Cliente id={self.client_id}, nome={self.nome}, sobre_nome={self.sobre_nome}, "
             f"telefone={self.telefone}, empresa={self.empresa}"
         )
 

@@ -24,7 +24,7 @@ def upgrade() -> None:
         "funcionarios",
         sa.Column("id", sa.Integer, primary_key=True, autoincrement=True),
         sa.Column("nome", sa.String(50), nullable=False),
-        sa.Column("sobre_Nome", sa.String(100)),
+        sa.Column("sobre_nome", sa.String(100)),
         sa.Column("funcao", sa.String(50), nullable=False),
         sa.Column("telefone", sa.VARCHAR(11), nullable=False),
         sa.CheckConstraint(
@@ -36,19 +36,19 @@ def upgrade() -> None:
         funcionarios = [
             {
                 "nome": "João",
-                "sobre_Nome": "Silva",
+                "sobre_nome": "Silva",
                 "funcao": "Analista",
                 "telefone": "91122334455",
             },
             {
                 "nome": "Maria",
-                "sobre_Nome": "Santos",
+                "sobre_nome": "Santos",
                 "funcao": "Gerente",
                 "telefone": "95566778899",
             },
             {
                 "nome": "Pedro",
-                "sobre_Nome": "Ferreira",
+                "sobre_nome": None,
                 "funcao": "Desenvolvedor",
                 "telefone": "99988776655",
             },

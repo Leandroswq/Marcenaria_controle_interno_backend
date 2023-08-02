@@ -24,7 +24,7 @@ def upgrade() -> None:
         "clientes",
         sa.Column("id", sa.Integer, primary_key=True, autoincrement=True),
         sa.Column("nome", sa.String(50), nullable=False),
-        sa.Column("sobre_Nome", sa.String(100)),
+        sa.Column("sobre_nome", sa.String(100)),
         sa.Column("telefone", sa.VARCHAR(11), nullable=False),
         sa.Column("empresa", sa.String(50), nullable=True),
         sa.Column("e_empresa", sa.Boolean, nullable=False, default=False),
@@ -34,32 +34,30 @@ def upgrade() -> None:
     if create_seed:
         clientes = [
             {
-                "nome": "Cliente 1",
+                "nome": "Cliente",
+                "sobre_nome": "1",
                 "telefone": "62999999999",
                 "empresa": "Empresa 1",
                 "e_empresa": True,
             },
             {
-                "nome": "Cliente 2",
+                "nome": "Cliente",
+                "sobre_nome": "2",
                 "telefone": "62988888888",
                 "empresa": "Empresa 2",
                 "e_empresa": True,
             },
             {
                 "nome": "Cliente 3",
+                "sobre_nome": None,
                 "telefone": "62977777777",
                 "empresa": "Empresa 3",
                 "e_empresa": True,
             },
             {
                 "nome": "Cliente 4",
+                "sobre_nome": None,
                 "telefone": "62966666666",
-                "empresa": None,
-                "e_empresa": False,
-            },
-            {
-                "nome": "Cliente 5",
-                "telefone": "62955555555",
                 "empresa": None,
                 "e_empresa": False,
             },

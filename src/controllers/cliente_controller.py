@@ -3,14 +3,13 @@ from src.interfaces.cliente_interfaces import (
     ClienteServiceInterface,
 )
 from src.models.http.request_model import HttpRequestModel
-from src.service.cliente_service import ClienteService
-from src.models.tables.cliente_models import ClienteModel, ClienteModelResponse
+from src.services.cliente_service import ClienteService
+from src.models.tables.cliente_models import ClienteModelResponse
 from src.models.http.response_model import (
     Update_response_model,
     Delete_response_model,
     Insert_response_model,
 )
-from typing import List
 
 
 class ClienteController(ClienteControllerInterface):

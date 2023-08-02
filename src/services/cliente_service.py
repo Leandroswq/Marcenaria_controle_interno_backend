@@ -20,8 +20,8 @@ class ClienteService(ClienteServiceInterface):
             e_empresa=data.e_empresa,
         )
 
-    def select_cliente_by_nome(self, data: dict) -> List[ClienteModel]:
-        clientes = self.select_cliente_by_nome(data["nome"])
+    def select_cliente_by_nome(self, nome: str) -> List[ClienteModel]:
+        clientes = self.__repository.select_cliente_by_nome(nome=nome)
 
         return clientes
 

@@ -3,6 +3,7 @@ from src.infra.db.entities.cliente_entity import ClienteEntity
 from src.interfaces.cliente_interfaces import ClienteRepositoryInterface
 from src.models.tables.cliente_models import ClienteModel
 from src.infra.db.settings.connection import DBConnectionHandler
+from sqlalchemy import func, or_
 
 
 class ClienteRepository(ClienteRepositoryInterface):
@@ -63,7 +64,14 @@ class ClienteRepository(ClienteRepositoryInterface):
             try:
                 clientes = (
                     database.session.query(ClienteEntity)
-                    .where(ClienteEntity.nome == nome)
+                    .where(
+                        or_(
+                            func.concat(
+                                ClienteEntity.nome, " ", ClienteEntity.sobre_nome
+                            ).contains(nome),
+                            ClienteEntity.nome.contains(nome),
+                        )
+                    )
                     .all()
                 )
                 return [

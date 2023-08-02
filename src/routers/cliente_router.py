@@ -57,7 +57,7 @@ async def select_cliente_by_nome(
     nome: str = Query(..., description="Nome do cliente a ser pesquisado"),
 ) -> ClienteModelResponse:
     my_request = await request_adapter(request)
-    response = cliente_controller.select_all_clientes(my_request)
+    response = cliente_controller.select_cliente_by_nome(my_request)
 
     return response
 

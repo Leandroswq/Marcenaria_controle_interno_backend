@@ -23,8 +23,8 @@ class ClienteController(ClienteControllerInterface):
         return Insert_response_model()
 
     def select_cliente_by_nome(self, request: HttpRequestModel) -> ClienteModelResponse:
-        data = request.body["data"]
-        response = self.service.select_cliente_by_nome(data)
+        nome = request.query_params.get("nome")
+        response = self.service.select_cliente_by_nome(nome)
 
         return ClienteModelResponse(data=response)
 

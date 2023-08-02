@@ -23,7 +23,7 @@ class ClienteRepositoryInterface(ABC):
         pass
 
     @abstractmethod
-    def select_cliente_by_nome(self, nome: str) -> None:
+    def select_cliente_by_nome(self, nome: str) -> List[ClienteModel]:
         pass
 
     @abstractmethod

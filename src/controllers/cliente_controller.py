@@ -41,8 +41,9 @@ class ClienteController(ClienteControllerInterface):
         return ClienteModelResponse(data=response)
 
     def update_cliente(self, request: HttpRequestModel) -> Update_response_model:
-        cliente_id = request.path_params[0]
-        self.__service.update_cliente(cliente_id=cliente_id)
+        cliente_id = int(request.path_params[0])
+        data = request.body
+        self.__service.update_cliente(cliente_id=cliente_id, data=data)
 
         return Update_response_model()
 

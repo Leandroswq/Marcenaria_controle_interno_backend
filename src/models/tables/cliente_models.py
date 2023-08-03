@@ -20,7 +20,7 @@ class ClienteWithoutIdModel(BaseModel):
 class ClienteUpdatedModel(BaseModel):
     nome: Optional[str] = None
     sobre_nome: Optional[str] = None
-    telefone: Optional[str] = None
+    telefone: Optional[str] = Field(..., example="12345678901")
     empresa: Optional[str] = None
     e_empresa: Optional[bool] = None
 

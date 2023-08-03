@@ -105,17 +105,6 @@ async def update_cliente(
 # delete  ================================
 
 
-from fastapi import FastAPI, HTTPException
-
-app = FastAPI()
-
-
-class ItemNotFoundError(HTTPException):
-    def __init__(self, item_id: int):
-        self.message = f"Item com ID {item_id} não encontrado"
-        super().__init__(status_code=404, detail={"message": self.message})
-
-
 @router.delete(
     "/{cliente_id}",
     summary="Deletar um cliente",

@@ -1,0 +1,1 @@
+- Consertar o problema de deletar um dado no banco de dados que seja usado como FK em outras tabelas

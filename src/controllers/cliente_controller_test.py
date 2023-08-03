@@ -125,13 +125,17 @@ def test_select_all_clientes(controller_service):
 def test_update_cliente(controller_service):
     cliente_controller, mock_service = controller_service
     cliente_id = 1
-    request = HttpRequestModel(path_params=[cliente_id])
+    cliente_data = generate_clientes_without_id(1)[0]
+
+    request = HttpRequestModel(path_params=[cliente_id], body=cliente_data)
 
     mock_service.update_cliente.return_value = None
 
     response = cliente_controller.update_cliente(request=request)
 
-    mock_service.update_cliente.assert_called_once_with(cliente_id=cliente_id)
+    mock_service.update_cliente.assert_called_once_with(
+        cliente_id=cliente_id, data=cliente_data
+    )
 
     assert isinstance(response, Update_response_model)
     assert response.detail == "Atualizado com sucesso"

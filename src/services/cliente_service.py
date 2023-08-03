@@ -9,6 +9,7 @@ from src.validation.cliente_validations import (
     validate_cliente,
     validate_cliente_optional_fields,
 )
+from src.validation.common_validations import string_validate
 
 
 class ClienteService(ClienteServiceInterface):
@@ -27,8 +28,7 @@ class ClienteService(ClienteServiceInterface):
         )
 
     def select_cliente_by_nome(self, nome: str) -> List[ClienteModel]:
-        validate_cliente_optional_fields(data={"nome": nome})
-
+        string_validate(nome, max_len=100)
         clientes = self.__repository.select_cliente_by_nome(nome=nome)
 
         return clientes

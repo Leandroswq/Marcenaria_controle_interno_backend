@@ -48,7 +48,7 @@ class FuncionarioServiceInterface(ABC):
         pass
 
     @abstractmethod
-    def select_funcionario_by_nome(self, data: dict) -> List[FuncionarioModel]:
+    def select_funcionario_by_nome(self, nome: str) -> List[FuncionarioModel]:
         pass
 
     @abstractmethod

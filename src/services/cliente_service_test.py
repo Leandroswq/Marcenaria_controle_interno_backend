@@ -1,7 +1,8 @@
 import pytest
+
+from src.errors.http_erros import ValidationException
 from src.services.cliente_service import ClienteService
 from src.models.tables.cliente_models import ClienteWithoutIdModel, ClienteModel
-from pytest_mock import mocker
 from utilities.dict_utilities import compare_dicts
 from typing import List
 
@@ -72,6 +73,14 @@ def test_insert_cliente(service):
     )
 
 
+def test_insert_cliente_invalid_data(service):
+    cliente_service, mock_repository = service
+    cliente_data = generate_clientes_without_id(1)[0]
+    cliente_data.telefone = ""
+    with pytest.raises(ValidationException):
+        cliente_service.insert_cliente(data=cliente_data)
+
+
 def test_select_cliente_by_id(service):
     cliente_service, mock_repository = service
     cliente_id = 1
@@ -108,6 +117,12 @@ def test_select_cliente_by_nome(service):
         assert compare_dicts(cliente.__dict__, clientes_response[i].__dict__)
 
 
+def test_select_cliente_by_nome_invalid_data(service):
+    cliente_service, mock_repository = service
+    with pytest.raises(ValidationException):
+        cliente_service.select_cliente_by_nome(nome=5)
+
+
 def test_select_all_clientes(service):
     cliente_service, mock_repository = service
 
@@ -128,7 +143,7 @@ def test_select_all_clientes(service):
 
 def test_update_cliente(service):
     cliente_service, mock_repository = service
-    cliente_data = generate_clientes(1)[0].__dict__
+    cliente_data = generate_clientes_without_id(1)[0].__dict__
     cliente_id = 1
 
     assert (
@@ -137,4 +152,21 @@ def test_update_cliente(service):
 
     mock_repository.update_cliente(cliente_id=cliente_id, data=cliente_data)
 
-    assert compare_dicts(cliente_data, generate_clientes(1)[0].__dict__)
+    assert compare_dicts(cliente_data, generate_clientes_without_id(1)[0].__dict__)
+
+
+def test_update_cliente_invalid_data(service):
+    cliente_service, mock_repository = service
+    cliente_data = generate_clientes_without_id(1)[0]
+    cliente_data.telefone = ""
+    with pytest.raises(ValidationException):
+        cliente_service.update_cliente(data=cliente_data, cliente_id=1)
+
+
+def test_delete_cliente(service):
+    cliente_service, mock_repository = service
+    cliente_id = 1
+
+    assert cliente_service.delete_cliente(cliente_id=cliente_id) is None
+
+    mock_repository.delete_cliente.assert_called_once()

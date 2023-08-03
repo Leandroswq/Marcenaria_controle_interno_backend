@@ -5,6 +5,10 @@ from src.interfaces.cliente_interfaces import (
 )
 from src.models.tables.cliente_models import ClienteModel, ClienteWithoutIdModel
 from src.infra.db.repositories.cliente_repository import ClienteRepository
+from src.validation.cliente_validations import (
+    validate_cliente,
+    validate_cliente_optional_fields,
+)
 
 
 class ClienteService(ClienteServiceInterface):
@@ -12,6 +16,8 @@ class ClienteService(ClienteServiceInterface):
         self.__repository = repository
 
     def insert_cliente(self, data: ClienteWithoutIdModel) -> None:
+        validate_cliente(data=data.__dict__, id_is_required=False)
+
         self.__repository.insert_cliente(
             nome=data.nome,
             sobre_nome=data.sobre_nome,
@@ -21,6 +27,8 @@ class ClienteService(ClienteServiceInterface):
         )
 
     def select_cliente_by_nome(self, nome: str) -> List[ClienteModel]:
+        validate_cliente_optional_fields(data={"nome": nome})
+
         clientes = self.__repository.select_cliente_by_nome(nome=nome)
 
         return clientes
@@ -35,6 +43,8 @@ class ClienteService(ClienteServiceInterface):
         return clientes
 
     def update_cliente(self, cliente_id: int, data: dict) -> None:
+        validate_cliente_optional_fields(data=data)
+
         self.__repository.update_cliente(data=data)
 
     def delete_cliente(self, cliente_id: int) -> None:

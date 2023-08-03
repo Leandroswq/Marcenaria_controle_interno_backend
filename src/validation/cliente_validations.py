@@ -36,7 +36,8 @@ def validate_cliente_optional_fields(data: dict):
 
     validator = Validator(schema)
     response = validator.validate(data)
-
+    print(validator.errors, "=============")
+    print(data)
     if response is False:
         raise ValidationException()
 

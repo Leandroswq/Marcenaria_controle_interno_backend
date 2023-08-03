@@ -152,7 +152,9 @@ def test_update_cliente(service):
 
     mock_repository.update_cliente(cliente_id=cliente_id, data=cliente_data)
 
-    assert compare_dicts(cliente_data, generate_clientes_without_id(1)[0].__dict__)
+    data = generate_clientes_without_id(1)[0].__dict__
+    data["id"] = cliente_id
+    assert compare_dicts(cliente_data, data)
 
 
 def test_update_cliente_invalid_data(service):

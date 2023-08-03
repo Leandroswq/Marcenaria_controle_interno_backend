@@ -16,3 +16,22 @@ def dict_len_validate(data: dict, min_len: int = 1, type_schema="Body"):
         raise ValidationException()
 
     return True
+
+
+def string_validate(data: str, max_len: int = 200):
+    schema = {
+        "data": {
+            "type": "string",
+            "required": True,
+            "empty": False,
+            "maxlength": max_len,
+        }
+    }
+
+    validator = Validator(schema)
+    response = validator.validate({"data": data})
+
+    if response is False:
+        raise ValidationException()
+
+    return True

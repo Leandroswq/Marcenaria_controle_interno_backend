@@ -44,7 +44,7 @@ class ClienteService(ClienteServiceInterface):
 
     def update_cliente(self, cliente_id: int, data: dict) -> None:
         validate_cliente_optional_fields(data=data)
-
+        data["id"] = cliente_id
         self.__repository.update_cliente(data=data)
 
     def delete_cliente(self, cliente_id: int) -> None:

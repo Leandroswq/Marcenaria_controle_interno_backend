@@ -9,3 +9,11 @@ class ValidationException(HTTPException):
 class NotFoundException(HTTPException):
     def __init__(self):
         super().__init__(status_code=404, detail="Not Found Error")
+
+
+class ConflictError(HTTPException):
+    def __init__(self, detail):
+        super().__init__(
+            status_code=409,
+            detail=detail,
+        )

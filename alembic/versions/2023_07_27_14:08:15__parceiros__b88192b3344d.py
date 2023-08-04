@@ -24,7 +24,7 @@ def upgrade() -> None:
         "parceiros",
         sa.Column("id", sa.Integer, primary_key=True, autoincrement=True),
         sa.Column("nome", sa.String(50), nullable=False),
-        sa.Column("sobre_Nome", sa.String(100)),
+        sa.Column("sobre_nome", sa.String(100)),
         sa.Column("empresa", sa.String(50), nullable=True),
         sa.Column("e_empresa", sa.Boolean, nullable=False, default=False),
         sa.Column("telefone", sa.VARCHAR(11), nullable=False),
@@ -37,21 +37,21 @@ def upgrade() -> None:
         parceiros = [
             {
                 "nome": "Fulano",
-                "sobre_Nome": "de Tal",
+                "sobre_nome": "de Tal",
                 "empresa": "Empresa A",
                 "e_empresa": True,
                 "telefone": "91122334455",
             },
             {
                 "nome": "Ciclano",
-                "sobre_Nome": "da Silva",
+                "sobre_nome": "da Silva",
                 "empresa": None,
                 "e_empresa": False,
                 "telefone": "95566778899",
             },
             {
                 "nome": "Beltrano",
-                "sobre_Nome": "Ferreira",
+                "sobre_nome": "Ferreira",
                 "empresa": "Empresa B",
                 "e_empresa": True,
                 "telefone": "99988776655",

@@ -40,7 +40,7 @@ class FuncionarioRepository(FuncionarioRepositoryInterface):
                 funcionario = (
                     database.session.query(FuncionarioEntity)
                     .filter(FuncionarioEntity.id == funcionario_id)
-                    .first()
+                    .one()
                 )
                 if funcionario:
                     return [

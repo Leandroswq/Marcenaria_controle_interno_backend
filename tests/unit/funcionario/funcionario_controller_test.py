@@ -53,7 +53,7 @@ def test_select_funcionario_by_id(controller_service):
     mock_service.select_funcionario_by_id.assert_called_once()
 
     assert isinstance(response, FuncionarioModelResponse)
-    assert response.detail == "Operação efetuada com sucesso "
+    assert response.detail == "Operação efetuada com sucesso"
     assert isinstance(response.data, List)
     assert len(response.data) == 1
     assert compare_dicts(
@@ -72,7 +72,7 @@ def test_select_funcionario_by_nome(controller_service):
     mock_service.select_funcionario_by_nome.assert_called_once_with(nome=nome)
 
     assert isinstance(response, FuncionarioModelResponse)
-    assert response.detail == "Operação efetuada com sucesso "
+    assert response.detail == "Operação efetuada com sucesso"
     assert isinstance(response.data, List)
     assert len(response.data) == 1
     assert compare_dicts(
@@ -91,7 +91,7 @@ def test_select_all_funcionarios(controller_service):
     mock_service.select_all_funcionarios.assert_called_once()
 
     assert isinstance(response, FuncionarioModelResponse)
-    assert response.detail == "Operação efetuada com sucesso "
+    assert response.detail == "Operação efetuada com sucesso"
     assert isinstance(response.data, List)
     assert len(response.data) == 2
 

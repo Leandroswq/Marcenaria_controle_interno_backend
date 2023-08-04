@@ -91,7 +91,7 @@ def test_select_parceiro_by_id(controller_service):
     mock_service.select_parceiro_by_id.assert_called_once()
 
     assert isinstance(response, ParceiroModelResponse)
-    assert response.detail == "Operação efetuada com sucesso "
+    assert response.detail == "Operação efetuada com sucesso"
     assert isinstance(response.data, List)
     assert len(response.data) == 1
     assert compare_dicts(response.data[0].__dict__, generate_parceiros(1)[0].__dict__)
@@ -108,7 +108,7 @@ def test_select_parceiro_by_nome(controller_service):
     mock_service.select_parceiro_by_nome.assert_called_once_with(nome=nome)
 
     assert isinstance(response, ParceiroModelResponse)
-    assert response.detail == "Operação efetuada com sucesso "
+    assert response.detail == "Operação efetuada com sucesso"
     assert isinstance(response.data, List)
     assert len(response.data) == 1
     assert compare_dicts(response.data[0].__dict__, generate_parceiros(1)[0].__dict__)
@@ -125,7 +125,7 @@ def test_select_all_parceiros(controller_service):
     mock_service.select_all_parceiros.assert_called_once()
 
     assert isinstance(response, ParceiroModelResponse)
-    assert response.detail == "Operação efetuada com sucesso "
+    assert response.detail == "Operação efetuada com sucesso"
     assert isinstance(response.data, List)
     assert len(response.data) == 2
 

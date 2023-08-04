@@ -11,7 +11,7 @@ def no_body_response_model_factory(response_message: str):
 
 def response_model_factory(
     response_data: object,
-    response_message: str = "Operação efetuada com sucesso ",
+    response_message: str = "Operação efetuada com sucesso",
 ) -> object:
     class NoBodyResponseModel(BaseModel):
         detail: Optional[str] = response_message

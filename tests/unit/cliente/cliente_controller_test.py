@@ -56,7 +56,7 @@ def test_select_cliente_by_id(controller_service):
     assert isinstance(response, BaseModel)
     assert hasattr(response, "detail")
     assert hasattr(response, "data")
-    assert response.detail == "Operação efetuada com sucesso "
+    assert response.detail == "Operação efetuada com sucesso"
     assert isinstance(response.data, List)
     assert len(response.data) == 1
     assert compare_dicts(response.data[0].__dict__, generate_clientes(1)[0].__dict__)
@@ -75,7 +75,7 @@ def test_select_all_clientes(controller_service):
     assert isinstance(response, BaseModel)
     assert hasattr(response, "detail")
     assert hasattr(response, "data")
-    assert response.detail == "Operação efetuada com sucesso "
+    assert response.detail == "Operação efetuada com sucesso"
     assert isinstance(response.data, List)
     assert len(response.data) == 2
 

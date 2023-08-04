@@ -4,6 +4,8 @@ from src.interfaces.cliente_interfaces import ClienteRepositoryInterface
 from src.models.tables.cliente_models import ClienteModel
 from src.infra.db.settings.connection import DBConnectionHandler
 from sqlalchemy import func, or_
+from sqlalchemy.exc import NoResultFound
+from src.errors.http_erros import NotFoundException
 
 
 class ClienteRepository(ClienteRepositoryInterface):
@@ -40,7 +42,7 @@ class ClienteRepository(ClienteRepositoryInterface):
                 cliente = (
                     database.session.query(ClienteEntity)
                     .where(ClienteEntity.id == cliente_id)
-                    .first()
+                    .one()
                 )
                 if cliente:
                     return [
@@ -55,6 +57,8 @@ class ClienteRepository(ClienteRepositoryInterface):
                     ]
                 else:
                     return []
+            except NoResultFound:
+                raise NotFoundException()
             except Exception as exception:
                 database.session.rollback()
                 raise exception
@@ -114,12 +118,15 @@ class ClienteRepository(ClienteRepositoryInterface):
                 cliente = (
                     database.session.query(ClienteEntity)
                     .where(ClienteEntity.id == data["id"])
-                    .first()
+                    .one()
                 )
                 if cliente:
                     for key, value in data.items():
                         setattr(cliente, key, value)
                     database.session.commit()
+
+            except NoResultFound:
+                raise NotFoundException()
             except Exception as exception:
                 database.session.rollback()
                 raise exception
@@ -130,7 +137,7 @@ class ClienteRepository(ClienteRepositoryInterface):
                 cliente = (
                     database.session.query(ClienteEntity)
                     .where(ClienteEntity.id == cliente_id)
-                    .first()
+                    .one()
                 )
                 if cliente:
                     database.session.delete(cliente)

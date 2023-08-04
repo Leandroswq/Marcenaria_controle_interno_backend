@@ -4,6 +4,8 @@ from src.interfaces.funcionario_interfaces import FuncionarioRepositoryInterface
 from src.models.tables.funcionario_models import FuncionarioModel
 from src.infra.db.settings.connection import DBConnectionHandler
 from sqlalchemy import func, or_
+from sqlalchemy.exc import NoResultFound
+from src.errors.http_erros import NotFoundException
 
 
 class FuncionarioRepository(FuncionarioRepositoryInterface):
@@ -52,6 +54,8 @@ class FuncionarioRepository(FuncionarioRepositoryInterface):
                     ]
                 else:
                     return []
+            except NoResultFound:
+                raise NotFoundException()
             except Exception as exception:
                 database.session.rollback()
                 raise exception
@@ -111,12 +115,14 @@ class FuncionarioRepository(FuncionarioRepositoryInterface):
                 funcionario = (
                     database.session.query(FuncionarioEntity)
                     .filter(FuncionarioEntity.id == data["id"])
-                    .first()
+                    .one()
                 )
                 if funcionario:
                     for key, value in data.items():
                         setattr(funcionario, key, value)
                     database.session.commit()
+            except NoResultFound:
+                raise NotFoundException()
             except Exception as exception:
                 database.session.rollback()
                 raise exception

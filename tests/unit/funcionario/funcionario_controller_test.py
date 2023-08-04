@@ -14,44 +14,10 @@ from src.models.http.response_model import (
 )
 from src.models.http.request_model import HttpRequestModel
 from utilities.dict_utilities import compare_dicts
-
-
-def generate_funcionarios_without_id(size) -> List[FuncionarioWithoutIdModel]:
-    data = [
-        FuncionarioWithoutIdModel(
-            nome="John",
-            sobre_nome="Doe",
-            funcao="Gerente",
-            telefone="12345678901",
-        ),
-        FuncionarioWithoutIdModel(
-            nome="Jane",
-            sobre_nome="Smith",
-            funcao="Assistente",
-            telefone="9876543210",
-        ),
-    ]
-    return data[0:size]
-
-
-def generate_funcionarios(size) -> List[FuncionarioModel]:
-    data = [
-        FuncionarioModel(
-            funcionario_id=1,
-            nome="John",
-            sobre_nome="Doe",
-            funcao="Gerente",
-            telefone="12345678901",
-        ),
-        FuncionarioModel(
-            funcionario_id=2,
-            nome="Jane",
-            sobre_nome="Smith",
-            funcao="Assistente",
-            telefone="9876543210",
-        ),
-    ]
-    return data[0:size]
+from tests.unit.funcionario.funcionario_mock import (
+    generate_funcionarios,
+    generate_funcionarios_without_id,
+)
 
 
 @pytest.fixture

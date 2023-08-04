@@ -24,13 +24,26 @@ def upgrade() -> None:
         "medidas",
         sa.Column("id", sa.Integer, primary_key=True, autoincrement=True),
         sa.Column("medida", sa.String(50), nullable=False, unique=True),
+        sa.Column(
+            "unidade",
+            sa.Enum(
+                "distancia",
+                "volume",
+                "tempo",
+                "peso",
+                "temperatura",
+                "unidade",
+                name="unidade_enum",
+            ),
+            nullable=False,
+        ),
     )
 
     if create_seed:
         medidas = [
-            {"medida": "metro"},
-            {"medida": "unidade"},
-            {"medida": "litro"},
+            {"medida": "metro", "unidade": "distancia"},
+            {"medida": "unidade", "unidade": "unidade"},
+            {"medida": "litro", "unidade": "volume"},
         ]
         try:
             op.bulk_insert(tabela, medidas)
